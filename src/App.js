@@ -16,14 +16,21 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.fetchRequest();
+  }
+
+  fetchRequest = () => {
     fetch(reqUrl).then(res => {
       if (res.ok) return res.json();
       console.warn("fetch failure", res);
     }).then(json => {
-      this.setState({ repos: json.items });
-    }).catch(ex =>
+      if (json.incomplete_results)
+        this.fetchRequest();
+      else
+        this.setState({ repos: json.items });
+    }).catch(ex => {
       console.warn("fetch exception", ex)
-    )
+    });
   }
 
   handleClick = e => {
