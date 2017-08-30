@@ -19,17 +19,9 @@ class App extends Component {
     fetch(reqUrl).then(res => {
       if (res.ok) return res.json();
       console.warn("fetch failure", res);
-    }).then(json => this.setState(prevState => ({
-      repos: prevState.repos.concat({
-        full_name: json.full_name,
-        html_url: json.html_url,
-        description: json.description,
-        created_at: json.created_at,
-        updated_at: json.updated_at,
-        size: json.size, // Git Repo size in KB
-        stargazers_count: json.stargazers_count,
-      })
-    }))).catch(ex =>
+    }).then(json => {
+      this.setState({ repos: json.items });
+    }).catch(ex =>
       console.warn("fetch exception", ex)
     )
   }
