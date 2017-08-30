@@ -26,6 +26,19 @@ class App extends Component {
     )
   }
 
+  handleClick = e => {
+    let dir = e.target.id, target;
+    if (dir === "prev")
+      target = this.state.page - 1;
+    else if (dir === "next")
+      target = this.state.page + 1;
+
+    this.setState(
+      { page: target },
+      () => window.scrollTo(0, 0)
+    );
+  }
+
   render() {
     let items = paginate(
       this.state.repos, 
@@ -44,13 +57,18 @@ class App extends Component {
         <h1 className="App-title">
           Top GitHub JavaScript Repositories
         </h1>
-        <ItemList 
-          items={items} 
-        />
-        <PageButtons 
-          page={this.state.page} 
-          last={last}
-        />
+        {this.state.repos.length ? (
+          <div>
+            <ItemList 
+              items={items} 
+            />
+            <PageButtons 
+              page={this.state.page} 
+              last={last}
+              onClick={this.handleClick}
+            />
+          </div>
+          ) : <div className="App-loader"/>}
       </div>
     );
   }

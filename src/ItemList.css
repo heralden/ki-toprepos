@@ -1,6 +1,42 @@
+.Item-list {
+  background-color: #f1f8ff;
+  color: #586069;
+  margin: 0 6em 0 6em;
+  padding: 1em;
+  border: 0.1em solid lightgray;
+  border-radius: 0.5em;
+}
+
 .Item {
+  font-size: 2em;
+  margin-bottom: 2em;
 }
 
 .Item-name {
   float: left;
+}
+
+.Item-stars {
+  margin-left: 1em;
+  float: left;
+}
+
+.Item-size, .Item-created, .Item-updated {
+  margin-left: 1em;
+}
+
+.Item-size {
+  float: right;
+}
+
+.Item-created {
+  float: right;
+}
+
+.Item-updated {
+  float: right;
+}
+
+.Item-desc {
+  text-align: left;
 }

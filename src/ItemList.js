@@ -1,25 +1,27 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './ItemList.css';
 
 const ItemList = ({ items }) => (
-  <ul>
+  <div className="Item-list">
     {items.map((e, i) => 
       <Item data={e} key={i} />
     )}
-  </ul>
+  </div>
 );
 
 export default ItemList;
 
 const Item = ({ data }) => (
-  <li className="Item">
+  <div className="Item">
     <a className="Item-name" href={data.html_url}> 
       {data.full_name}
     </a>
-    <span className="Item-stars">{data.stargazers_count}</span>
-    <span className="Item-size">{data.size}</span>
-    <span className="Item-created">{data.created_at}</span>
-    <span className="Item-updated">{data.updated_at}</span>
+    <span className="Item-stars">★ {data.stargazers_count}</span>
+    <span className="Item-created">{onlyDate(data.created_at)}</span>
+    <span className="Item-size">{data.size} KB</span>
+    <br/>
     <p className="Item-desc">{data.description}</p>
-  </li>
+  </div>
 );
+
+const onlyDate = str => str.slice(0,10)

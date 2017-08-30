@@ -1,3 +1,30 @@
 .App {
+  margin: 0 auto;
+  min-width: 60em;
+  max-width: 150em;
   text-align: center;
+}
+
+.App-title {
+  font-size: 2.9em;
+}
+
+.App-loader {
+  position: absolute;
+  margin-top: 2em;
+  left: 50%;
+  margin-left: -2em;
+  border: 2em solid whitesmoke;
+  border-top: 2em solid #586069;
+  border-radius: 50%;
+  width: 4em;
+  height: 4em;
+  animation-name: spin;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }

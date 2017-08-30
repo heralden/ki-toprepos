@@ -1,0 +1,32 @@
+.Button-group {
+  margin: 3em;
+}
+
+.Page {
+  font-size: 2.1em;
+  margin: 2em;
+  color: #586069;
+}
+
+button {
+  background-color: gainsboro;
+  font-size: 2.1em;
+  border: 0;
+  border-radius: 0.1em;
+  outline: 0 none;
+}
+
+button:hover {
+  background-color: silver;
+  color: whitesmoke;
+}
+
+button:active {
+  background-color: silver;
+  color: gainsboro;
+}
+
+button:disabled {
+  background-color: whitesmoke;
+  color: silver;
+}
